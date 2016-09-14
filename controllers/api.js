@@ -95,6 +95,7 @@ exports.getGithub = function(req, res, next) {
   var token = req.user.tokens.github;
   var github = new Github({ token: token });
   var repo = github.getRepo('sahat', 'requirejs-library');
+
   repo.show(function(err, repository) {
     if (err) return next(err);
     res.render('api/github', {

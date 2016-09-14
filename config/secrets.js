@@ -136,9 +136,11 @@ module.exports = {
 
 //constructing Postgres connection string
 if(process.env.NODE_ENV === 'test-travis') {
-  module.exports.postgres = 'postgres://postgres@127.0.0.1/test_travis_ci';
+  module.exports.postgres = 'postgres://postgres:jasper@127.0.0.1/nohassls';
 } else if(process.env.NODE_ENV === 'test') {
-  module.exports.postgres = 'postgres://yhnavein:123@127.0.0.1/test';
+  module.exports.postgres = 'postgres://postgres:jasper@127.0.0.1/nohassls';
 } else {
-  module.exports.postgres = process.env.DATABASE_URL || 'postgres://yhnavein:123@127.0.0.1/prod';
+  module.exports.postgres = process.env.DATABASE_URL || 'postgres://postgres:jasper@127.0.0.1/nohassls';
 }
+
+
